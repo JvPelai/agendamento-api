@@ -11,10 +11,10 @@ app.use(cors());
 
 app.use(router);
 
-app.listen(8080, async () => {
+app.listen(process.env.PORT || 8080, async () => {
   try {
     await db.sync();
-    console.log("listening on port 8080");
+    console.log("Server is running");
   } catch (err) {
     console.log(err);
   }
