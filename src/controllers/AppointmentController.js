@@ -21,8 +21,33 @@ class AppointmentController {
       res.send(err).status(500);
     }
   }
-  static async updateAppointment() {}
-  static async deleteAppointment() {}
+  static async updateAppointment(req, res) {
+    try {
+      const { appt_id } = req.params;
+      const data = req.body;
+      const updatedAppt = await Appointment.update(data, {
+        where: {
+          id: appt_id,
+        },
+      });
+      res.json(updatedAppt).status(200);
+    } catch (err) {
+      res.send(err).status(500);
+    }
+  }
+  static async deleteAppointment(req, res) {
+    try {
+      const { appt_id } = req.params;
+      await Appointment.destroy({
+        where: {
+          id: appt_id,
+        },
+      });
+      res.json({ message: "Successfully deleted event" }).status(200);
+    } catch (err) {
+      res.send(err).status(500);
+    }
+  }
 }
 
 export { AppointmentController };

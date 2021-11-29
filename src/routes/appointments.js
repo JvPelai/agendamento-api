@@ -4,6 +4,6 @@ const router = Router();
 
 router.get("/", AppointmentController.getAppointments);
 router.post("/", AppointmentController.createAppointment);
-router.patch("/:appt_id", () => console.log("edit appointment"));
-router.delete("/:appt_id", () => console.log("delete appointment"));
+router.put("/:appt_id", AppointmentController.updateAppointment);
+router.delete("/:appt_id", AppointmentController.deleteAppointment);
 export default router;
