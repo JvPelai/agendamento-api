@@ -5,7 +5,6 @@ const Appointment = db.define("appointment", {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
-    allowNull: false,
     primaryKey: true,
   },
   date: {
@@ -14,7 +13,7 @@ const Appointment = db.define("appointment", {
   },
   time: {
     type: Sequelize.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   desc: {
     type: Sequelize.STRING,
